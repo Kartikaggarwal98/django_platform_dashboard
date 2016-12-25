@@ -15,4 +15,4 @@ import random
 
 def index(request):
 	context_dict={}
-	return render(request,'index.html',context_dict)
+	return render(request,'home.html',context_dict)
