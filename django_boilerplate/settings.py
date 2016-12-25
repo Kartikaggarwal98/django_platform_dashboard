@@ -51,10 +51,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'django_boilerplate.urls'
 
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_PATH],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,11 +121,6 @@ USE_TZ = True
 
 #added code
 
-TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
-
-TEMPLATE_DIRS = (
-    TEMPLATE_PATH,
-)
 
 STATIC_PATH = os.path.join(BASE_DIR,'static')
 

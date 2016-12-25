@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
 from django.views import generic
@@ -15,4 +15,4 @@ import random
 
 def index(request):
 	context_dict={}
-	return render(request,'search/index.html',context_dict)
+	return render(request,'index.html',context_dict)
