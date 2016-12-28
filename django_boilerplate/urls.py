@@ -19,7 +19,7 @@ from app.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',index,name='main_page'),
-    url(r'^register/', register),
+    url(r'^register/', register,name='register'),
     url(r'^login/',user_login),
     url(r'^meets$',meets,name='meets_page'),
     url(r'^login$',login,name="login_page"),

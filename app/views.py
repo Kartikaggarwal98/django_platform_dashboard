@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 from django.http import HttpResponse
-from django.shortcuts import render,HttpResponse,HttpResponseRedirect,render_to_response,RequestContext
+from django.shortcuts import render,HttpResponse,HttpResponseRedirect,render_to_response
 from django.conf import settings
-from django.core.context_processors import csrf
 from django.contrib.auth import authenticate, login,logout
 from django.views import generic
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from app.models import Users,Department
+from app.models import UserProfile,Department
+from forms import UserProfileForm, UserForm
 import json
 import requests
 import random
