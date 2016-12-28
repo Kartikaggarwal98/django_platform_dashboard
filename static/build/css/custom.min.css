@@ -578,7 +578,7 @@ body img{
 }
 body {
     color: #73879C;
-    background: white;
+    background: #2A3F54;
     font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
     font-size: 15px;
     font-weight: 400;
@@ -1993,22 +1993,34 @@ span.right {
     bottom: 0px;
     clear: both;
     display: block;
-    padding: 5px 0 0 0;
+    padding: 0px 0 0 0;
     position: fixed;
     width: 230px;
     background: #2A3F54
 }
+.sidebar-footer{
+    background: #172D44;
+}
 
-.sidebar-footer a {
-    padding: 7px 0 3px;
+.sidebar-footer .Logicon {
+    padding: 7px 0 3px 0;
     text-align: center;
     width: 25%;
     font-size: 17px;
     display: block;
     float: left;
-    background: #172D44
+    background: #172D44;
 }
-
+.sidebar-footer .Logout{
+    display: block;
+    height: 100%;
+    font-size: 18px;
+    background: #172D44;
+    width: 75%;
+    float:left;
+    margin-top: 3px;
+    text-align: center;
+}
 .sidebar-footer a:hover {
     background: #425567
 }
