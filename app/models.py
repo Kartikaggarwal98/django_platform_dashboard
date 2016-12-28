@@ -1,14 +1,14 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Users(models.Model):
-	user_name=models.CharField(max_length=128,unique=True)
-	user_email=models.EmailField(max_length=128,unique=True)
-	user_phone=models.BigIntegerField(unique=True)
+	user= models.OneToOneField(User, null=True)
 	profile_pic=models.ImageField(upload_to='profile_pic/')
 	department=models.ForeignKey('Department',max_length=128)
+	isRegistered=models.BooleanField(null=False)
 
 	def __str__(self):
 		return self.user_name
