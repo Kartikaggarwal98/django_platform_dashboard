@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',index,name='main_page'),
     url(r'^register/', register,name='register'),
+    url(r'^signup/',signup,name='signup'),
     url(r'^login/',user_login),
     url(r'^meets$',meets,name='meets_page'),
     url(r'^login$',login,name="login_page"),

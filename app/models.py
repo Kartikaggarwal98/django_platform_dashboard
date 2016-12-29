@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class UserProfile(models.Model):
 	user= models.OneToOneField(User, null=True)
 	profile_pic=models.ImageField(upload_to='profile_pic/')
-	department=models.ForeignKey('Department',max_length=128)
+	department=models.ForeignKey('Department',max_length=128,null=True)
 	isRegistered=models.BooleanField(null=False)
 
 	def __str__(self):

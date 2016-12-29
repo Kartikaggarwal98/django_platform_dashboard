@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 from django.http import HttpResponse
 from django.shortcuts import render,HttpResponse,HttpResponseRedirect,render_to_response
 from django.conf import settings
@@ -24,24 +23,25 @@ def meets():
 	context_dict={}
 	return render(request,'calendar.html',context_dict)
 
+@csrf_exempt
 def register(request):
 
 	registered = False
 
 	if request.method == 'POST':
 		user_form = UserForm(data=request.POST)
-		profile_form = UserProfileForm(data=request.POST)
+		#profile_form = UserProfileForm(data=request.POST)
 
-		if user_form.is_valid() and profile_form.is_valid():
+		if user_form.is_valid():
 			user = user_form.save()
 
 			user.set_password(user.password)
 			user.save()
 
-			profile = profile_form.save()
+			#profile = profile_form.save()
 
-			profile.user = user
-			profile.save()
+			#profile.user = user
+			#profile.save()
 
 			registered = True
 		else:
@@ -56,7 +56,7 @@ def register(request):
 		'registered': registered
 	}
 
-	return render(request, "register.html", context_dict)
+	return render(request,"login.html", context_dict)
 
 def user_login(request):
 
@@ -78,5 +78,6 @@ def user_login(request):
 	else:
 		return render(request,"login.html",{})
 
-def login():
+def signup(request):
 	return render(request,'login.html')
+
