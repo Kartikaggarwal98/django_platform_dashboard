@@ -14,7 +14,25 @@ import json
 import requests
 import random
 
-
+def contact(request):
+	c={}
+	if(request.method=='POST'):
+		name=request.POST.get('name')
+		email=request.POST.get('email')
+		contact=request.POST.get('contact')
+		message=request.POST.get('message')
+		p=User.objects.get_or_create(name=name,
+			email=email,
+			contact=contact,
+			message=message)[0]
+		p.save()
+		c['name']=name
+		c['email']=email
+		c['contact']=contact
+		c['message']=message
+		return render(request,'submitted.html',c)
+	return render(request,'formecell.html',c)
+	
 def index(request):
 	context_dict={}
 	return render(request,'home.html',context_dict)
@@ -34,7 +52,7 @@ def register(request):
 
 		if user_form.is_valid():
 			user = user_form.save()
-
+			print user.password
 			user.set_password(user.password)
 			user.save()
 
@@ -45,18 +63,20 @@ def register(request):
 
 			registered = True
 		else:
-			print user_form.errors, profile_form.errors
+			print "###ERROR###"
+			print user_form.errors
 	else:
+		print "-------Registering---------"
 		user_form = UserForm()
-		profile_form = UserProfileForm()
+		#profile_form = UserProfileForm()
 
 	context_dict = {
 		'user_form': user_form,
-		'profile_form': profile_form,
+		#'profile_form': profile_form,
 		'registered': registered
 	}
 
-	return render(request,"login.html", context_dict)
+	return render(request,"register.html", context_dict)
 
 def user_login(request):
 
